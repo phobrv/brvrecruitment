@@ -31,8 +31,9 @@ class BrvRecruitmentServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/brvrecruitment.php', 'brvrecruitment');
-
+        // $this->mergeConfigFrom(__DIR__.'/../config/brvrecruitment.php', 'brvrecruitment');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'phobrv');
+        $this->loadRoutesFrom(__DIR__ . '/routes.php');
         // Register the service the package provides.
         $this->app->singleton('brvrecruitment', function ($app) {
             return new BrvRecruitment;
@@ -57,9 +58,9 @@ class BrvRecruitmentServiceProvider extends ServiceProvider
     protected function bootForConsole(): void
     {
         // Publishing the configuration file.
-        $this->publishes([
-            __DIR__.'/../config/brvrecruitment.php' => config_path('brvrecruitment.php'),
-        ], 'brvrecruitment.config');
+        // $this->publishes([
+        //     __DIR__.'/../config/brvrecruitment.php' => config_path('brvrecruitment.php'),
+        // ], 'brvrecruitment.config');
 
         // Publishing the views.
         /*$this->publishes([
