@@ -1,4 +1,4 @@
-@extends('phobrv::layout.app')
+@extends('phobrv::adminlte3.layout')
 
 @section('header')
 <a href="{{route('recruitment.index')}}"  class="btn btn-default float-left">
@@ -13,14 +13,14 @@
 @endsection
 
 @section('content')
-<div class="box box-primary">
-	<div class="box-body">
-		<div class="row">
-
-			<form class="form-horizontal" id="formSubmit" method="post" action="{{isset($data['post']) ? route('recruitment.update',array('recruitment'=>$data['post']->id)) : route('recruitment.store')}}"  enctype="multipart/form-data">
-				@csrf
-				@isset($data['post']) @method('put') @endisset
-				<input type="hidden" id="typeSubmit" name="typeSubmit" value="">
+<div class="card">
+	<div class="card-body">
+		
+		<form class="form-horizontal" id="formSubmit" method="post" action="{{isset($data['post']) ? route('recruitment.update',array('recruitment'=>$data['post']->id)) : route('recruitment.store')}}"  enctype="multipart/form-data">
+			@csrf
+			@isset($data['post']) @method('put') @endisset
+			<input type="hidden" id="typeSubmit" name="typeSubmit" value="">
+			<div class="row">
 				<div class="col-md-8">
 					@isset($data['post'])
 					@include('phobrv::input.inputText',['label'=>'Url','key'=>'slug'])
@@ -46,9 +46,9 @@
 					@include('phobrv::input.inputText',['label'=>'Han nộp hồ sơ','key'=>'endTime','formType'=>'basic','datepicker'=>'true','type'=>'meta'])
 
 				</div>
-				<button id="btnSubmit" style="display: none" type="submit" ></button>
-			</form>
-		</div>
+			</div>
+			<button id="btnSubmit" style="display: none" type="submit" ></button>
+		</form>
 	</div>
 </div>
 @endsection
