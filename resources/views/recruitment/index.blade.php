@@ -4,7 +4,7 @@
 <ul>
 	<li>
 		<a href="{{route('recruitment.create')}}"  class="btn btn-primary float-left">
-		    <i class="fa fa-edit"></i> @lang('Create new')
+		    <i class="far fa-edit"></i> @lang('Create new')
 		</a>
 	</li>
 </ul>
@@ -49,7 +49,7 @@
 						@endif
 					</td>
 					<td style="width: 50px;"  align="center">
-						<a href="{{route('recruitment.edit',array('recruitment'=>$r->id))}}"><i class="fa fa-edit" title="Sửa"></i></a>
+						<a href="{{route('recruitment.edit',array('recruitment'=>$r->id))}}"><i class="far fa-edit" title="Sửa"></i></a>
 						&nbsp;&nbsp;&nbsp;
 						<a style="color: red" href="#" onclick="destroy('destroy{{$r->id}}')"><i class="fa fa-times" title="Sửa"></i></a>
 						<form id="destroy{{$r->id}}" action="{{ route('recruitment.destroy',array('recruitment'=>$r->id)) }}" method="post" style="display: none;">
