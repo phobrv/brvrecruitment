@@ -147,7 +147,7 @@ class RecruitmentController extends Controller
 
         try {
             $data['post'] = $this->postRepository->find($id);
-            $data['meta'] = $this->postRepository->getMeta($data['post']->postMetas);
+            $data['meta'] = $this->postService->getMeta($data['post']->postMetas);
             return view('phobrv::recruitment.create')->with('data', $data);
         } catch (Exception $e) {
             return back()->with('alert_danger', $e->getMessage());
